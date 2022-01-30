@@ -8,17 +8,19 @@ namespace EasyOC.CMS.WebHost
 {
     public class Program
     {
-        public static Task Main(string[] args)
-            => BuildWebHost(args).RunAsync();
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-        public static IHost BuildWebHost(string[] args) =>
-           Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
                 .ConfigureLogging(logging => logging.ClearProviders())
-                .ConfigureWebHostDefaults(webBuilder => webBuilder
-                    .UseStartup<Startup>()
-                    .UseNLogWeb()
-                ).Build();
-
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseNLogWeb();
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
 

@@ -29,7 +29,7 @@ namespace EasyOC.CMS.WebHost
             });
 
             services.AddOrchardCms();
-            //.AddDatabaseShellsConfiguration();
+           
         }
 
         public void Configure(IApplicationBuilder app, IHostEnvironment env)

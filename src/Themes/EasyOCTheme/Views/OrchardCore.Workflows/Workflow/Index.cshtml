@@ -103,7 +103,7 @@
                                 <span class="hint">@T["Created {0}", (object)(await DisplayAsync(await New.TimeSpan(Utc: entry.Workflow.CreatedUtc)))]  @entry.Workflow.CreatedUtc.ToLocalTime()</span>
                                 <div class="info">
                                     <span class="badge badge-@statusCss">
-                                        @entry.Workflow.Status.GetLocalizedStatus(T)
+                                        @entry.Workflow.Status
                                     </span>
                                 </div>
                             </div>
